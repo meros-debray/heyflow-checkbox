@@ -1,0 +1,51 @@
+.checkbox__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* Hide the native checkbox */
+.checkbox--hide {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+/* Create a custom checkbox */
+.checkbox__label:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 2rem;
+  height: 2rem;
+  border: 0.125rem solid #000;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+/* Add checkmark when checked */
+.checkbox:checked + .checkbox__label:before {
+  background: url("./checkmark.svg") center no-repeat, #000;
+}
+
+/* Focus handling */
+.checkbox__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.checkbox:focus,
+.checkbox:focus-visible {
+  outline: none;
+}
+
+.checkbox:focus-visible + label {
+  outline: solid 0.25rem blue;
+  border-radius: 0.25rem;
+  outline-offset: 0.125rem;
+}
